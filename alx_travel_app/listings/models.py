@@ -12,12 +12,7 @@ class Listing(models.Model):
         help_text="Price per night for the listing"
     )
     location = models.CharField(max_length=255, help_text="Location of the property")
-    host = models.ForeignKey(
-        User, 
-        on_delete=models.CASCADE, 
-        related_name="listings", 
-        help_text="Host (owner) of the listing"
-    )
+    host = models.ForeignKey(User, on_delete=models.CASCADE, related_name="listings")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
